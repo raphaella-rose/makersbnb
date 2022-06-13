@@ -7,3 +7,5 @@ A web application that allows users to list spaces they have available, and to h
 As a [EXAMPLE USER STORY]
 
 ```
+
+Hello from Raphaella :) 
