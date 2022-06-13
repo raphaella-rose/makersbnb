@@ -8,9 +8,8 @@ As a [EXAMPLE USER STORY]
 
 ```
 
-Hello from Raphaella :) 
+Hello from Raphaella and Paddy :) 
 
-hello from paddy
 
 hello from Eman with the plan!
 
