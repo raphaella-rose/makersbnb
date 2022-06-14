@@ -2,8 +2,14 @@ require 'sinatra/base'
 require 'sinatra/reloader'
 
 class Makersbnb < Sinatra::Base
+  enable :sessions
   configure :development do
     register Sinatra::Reloader
+  end
+
+  get '/makersbnb/index' do
+    @email = session[:email]
+    "Welcome, #{@email}"
   end
 
   get '/users/new' do
@@ -11,8 +17,9 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/users/welcome' do
-   "Welcome, #{params[:email]}"
+   session[:email] = params[:email]
+   redirect '/makersbnb/index'
   end
-  
+
   run! if app_file == $0
 end
