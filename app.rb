@@ -7,11 +7,12 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/users/new' do
-   
    erb :"users/new"
   end
 
-  post '/users'
-
+  post '/users/welcome' do
+   "Welcome, #{params[:email]}"
+  end
+  
   run! if app_file == $0
 end
