@@ -16,6 +16,7 @@ hello from paddy
 
 
 
+
 ----------
 how to branch and push to main:
 ```
@@ -28,3 +29,21 @@ how to branch and push to main:
 Then move to the github website and create a pull request (you should get a prompt at the top of your screen).
 
 ```
+=======
+hello from eman
+
+# MAKERSBNB infrastructure set up
+
+└── MAKERSBNB
+    ├── spec
+    │   ├── features
+    │   │   ├── xxxx_xxxxx_spec.rb
+    │   │   ├── view_properties_spec.rb
+    │   │   └── xxx_xxxx.rb
+    │   └── spec_helper.rb
+    ├── .rspec
+    ├── Gemfile
+    ├── Gemfile.lock
+    ├── app.rb
+    └── config.ru
+
