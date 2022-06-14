@@ -6,11 +6,12 @@ class Makersbnb < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  get '/users/new' do
+   
+   erb :"users/new"
+  end
 
-
-#   get '/makersbnb/new' do
-#     erb :'makersbnb/new'
-#   end
+  post '/users'
 
   run! if app_file == $0
 end
