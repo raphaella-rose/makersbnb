@@ -7,4 +7,7 @@ feature 'registration' do
     
     expect(page).to have_content "Welcome, test@example.com"
   end
+
+  
+
 end
