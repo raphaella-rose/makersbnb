@@ -8,15 +8,8 @@ As a [EXAMPLE USER STORY]
 
 ```
 
-Hello from Raphaella and Paddy :) 
+https://github.com/makersacademy/course/blob/main/pills/development_workflow.md
 
+Hello from Raphaella :) 
 
-hello from Eman with the plan!
-
-hello Ibrahim
-
-eia_feature
-
-Another change for speedy sloths to review!
-
-LETS HAVE A GREAT DAY !!!
+hello from paddy
