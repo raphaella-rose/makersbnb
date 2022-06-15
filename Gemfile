@@ -6,4 +6,5 @@ gem 'sinatra'
 gem 'sinatra-contrib'
 gem 'rspec'
 gem 'capybara'
+gem 'bcrypt'
 gem "simplecov", "~> 0.21.2"
