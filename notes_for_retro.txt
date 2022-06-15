@@ -1,0 +1,9 @@
+how do sessions work?
+
+why are they needed to assign an instance variable?
+
+Are they similar to params? an array full of hashes?
+
+
+
+how does the post request work in a form? How is the name important?
