@@ -25,4 +25,14 @@ class Properties
   end
 
 
+  def self.create(property_title:, description:, price_per_night:)
+    if ENV['ENVIRONMENT'] == 'test'
+      connection = PG.connect(dbname: 'makersbnb_test')
+      else
+      connection = PG.connect(dbname: 'makersbnb')
+    end
+
+    connection.exec("INSERT INTO properties (property_title, description, price_per_night) VALUES('#{property_title}', '#{description}', '#{price_per_night}')")
+  end
+
 end

@@ -15,5 +15,17 @@ describe Properties do
       expect(properties.first.price_per_night).to include("300")
     end
   end
+
+  describe '.create' do
+    it 'saves a property to the database' do
+      Properties.create(property_title: 'buckingham palace', description:'the queens house init?', price_per_night: 300)
+      properties = Properties.all
+      expect(properties.first.property_title).to include 'buckingham palace'
+
+    end
+  end
+
+
+
 end 
 

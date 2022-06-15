@@ -1,3 +1,7 @@
-<%= @property_title %><br>
-<%= @description %><br>
-<%= @price_per_night %>
+<div class="">
+  <% @properties.each do |property| %>
+   <p><%= property.property_title %></p>
+   <p><%= property.description %></p>
+   <p><%= property.price_per_night %></p>
+   <% end %>
+</div>
