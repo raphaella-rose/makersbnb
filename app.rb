@@ -11,8 +11,8 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/makersbnb/index' do
-    @email = session[:email]
-    "Welcome, #{@email}"
+    @user = User.find(session[:user_id])
+    erb :"makersbnb/index"
   end
 
   get '/users/new' do
@@ -20,7 +20,9 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/users/welcome' do
-   session[:email] = params[:email]
+   user = User.create(email: params[:email], password: params[:password])
+   session[:user_id] = user.id
+   session[:email] = user.email
    redirect '/makersbnb/index'
   end
 
