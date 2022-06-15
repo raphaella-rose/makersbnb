@@ -3,7 +3,7 @@ feature 'authentication' do
 
     User.create(email: 'test@example.com', password: 'password123')
 
-    visit('/users/login')
+    visit '/sessions/new'
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'password123')
     click_button('Sign in')
@@ -13,3 +13,4 @@ feature 'authentication' do
 
   end
 end
+

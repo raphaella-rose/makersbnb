@@ -9,6 +9,16 @@ class Makersbnb < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+
+  get '/sessions/new' do
+    erb :"makersbnb/login"
+  end
+
+  post '/sessions' do
+    user = User.authenticate(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect('/makersbnb/index')
+  end
   
 
   get '/makersbnb/index' do
