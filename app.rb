@@ -19,8 +19,8 @@ class Makersbnb < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-
-    if user
+   
+    if user 
       session[:user_id] = user.id
       redirect('/makersbnb/index')
     else
