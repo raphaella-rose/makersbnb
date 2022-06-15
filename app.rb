@@ -9,6 +9,7 @@ class Makersbnb < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+  
 
   get '/makersbnb/index' do
     @user = User.find(id: session[:user_id])
