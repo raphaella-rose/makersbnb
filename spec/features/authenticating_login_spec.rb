@@ -1,5 +1,5 @@
 feature 'authentication' do
-  scenario 'registered user enters login details' do
+  xscenario 'registered user enters login details' do
 
     User.create(email: 'test@example.com', password: 'password123')
 
