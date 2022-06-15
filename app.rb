@@ -1,14 +1,17 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require 'sinatra/flash'
 require './lib/user'
 require './database_connection_setup'
 
 class Makersbnb < Sinatra::Base
   enable :sessions
+  register Sinatra::Flash
 
   configure :development do
     register Sinatra::Reloader
   end
+
 
   get '/sessions/new' do
     erb :"makersbnb/login"
@@ -16,8 +19,14 @@ class Makersbnb < Sinatra::Base
 
   post '/sessions' do
     user = User.authenticate(email: params[:email], password: params[:password])
-    session[:user_id] = user.id
-    redirect('/makersbnb/index')
+
+    if user
+      session[:user_id] = user.id
+      redirect('/makersbnb/index')
+    else
+      flash[:notice] = 'Please check your email or password.'
+      redirect('/sessions/new')
+    end
   end
   
 
