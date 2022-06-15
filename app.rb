@@ -11,7 +11,7 @@ class Makersbnb < Sinatra::Base
   end
 
   get '/makersbnb/index' do
-    @user = User.find(session[:user_id])
+    @user = User.find(id: session[:user_id])
     erb :"makersbnb/index"
   end
 
@@ -22,7 +22,6 @@ class Makersbnb < Sinatra::Base
   post '/users/welcome' do
    user = User.create(email: params[:email], password: params[:password])
    session[:user_id] = user.id
-   session[:email] = user.email
    redirect '/makersbnb/index'
   end
 

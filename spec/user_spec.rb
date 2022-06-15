@@ -25,9 +25,9 @@ describe User do
       expect(result.email).to eq user.email
     end
  
-    # it 'returns nil if there is no ID given' do
-    #   expect(User.find(id: nil)).to eq nil
-    # end
+    it 'returns nil if there is no ID given' do
+      expect(User.find(id: nil)).to eq nil
+    end
   end
   
 
