@@ -11,7 +11,10 @@ class Makersbnb < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
-
+ 
+  get '/makersbnb/' do
+    erb :"makersbnb/index"
+  end
 
   get '/sessions/new' do
     erb :"makersbnb/login"
@@ -28,11 +31,17 @@ class Makersbnb < Sinatra::Base
       redirect('/sessions/new')
     end
   end
+
+  get '/makersbnb/signout' do
+    session.clear
+    flash[:notice] = "You have signed out."
+    redirect('/makersbnb/')
+  end
   
 
   get '/makersbnb/index' do
     @user = User.find(id: session[:user_id])
-    erb :"makersbnb/index"
+    erb :"makersbnb/welcome"
   end
 
   get '/users/new' do
