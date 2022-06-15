@@ -47,3 +47,12 @@ hello from eman
     ├── app.rb
     └── config.ru
 
+# Database configuration
+## Users Database
+
+Steps to create database and table for production and test environments.
+
+1. CREATE DATABASE makersbnb; 
+2. CREATE DATABASE makersbnb_test;
+3. Please refer to this file: ./db/migrations/01_create_table.sql and execute after
+steps 1 and 2 respectively. 

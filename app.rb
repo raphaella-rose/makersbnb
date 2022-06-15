@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/user'
+require './database_connection_setup'
 
 class Makersbnb < Sinatra::Base
   enable :sessions
@@ -7,10 +9,11 @@ class Makersbnb < Sinatra::Base
   configure :development do
     register Sinatra::Reloader
   end
+  
 
   get '/makersbnb/index' do
-    @email = session[:email]
-    "Welcome, #{@email}"
+    @user = User.find(id: session[:user_id])
+    erb :"makersbnb/index"
   end
 
   get '/users/new' do
@@ -18,7 +21,8 @@ class Makersbnb < Sinatra::Base
   end
 
   post '/users/welcome' do
-   session[:email] = params[:email]
+   user = User.create(email: params[:email], password: params[:password])
+   session[:user_id] = user.id
    redirect '/makersbnb/index'
   end
 

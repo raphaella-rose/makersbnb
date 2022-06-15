@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    bcrypt (3.1.18)
     capybara (3.37.1)
       addressable
       matrix
@@ -20,6 +21,8 @@ GEM
     mustermann (1.1.1)
       ruby2_keywords (~> 0.0.1)
     nokogiri (1.13.6-arm64-darwin)
+      racc (~> 1.4)
+    nokogiri (1.13.6-x86_64-darwin)
       racc (~> 1.4)
     public_suffix (4.0.7)
     racc (1.6.0)
@@ -67,8 +70,10 @@ GEM
 PLATFORMS
   arm64-darwin-20
   arm64-darwin-21
+  x86_64-darwin-21
 
 DEPENDENCIES
+  bcrypt
   capybara
   rspec
   simplecov (~> 0.21.2)
@@ -76,4 +81,4 @@ DEPENDENCIES
   sinatra-contrib
 
 BUNDLED WITH
-   2.3.15
+   2.3.13
