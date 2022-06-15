@@ -8,7 +8,19 @@ class Makersbnb < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  get '/makersbnb/index' do
+    @email = session[:email]
+    "Welcome, #{@email}"
+  end
 
+  get '/users/new' do
+   erb :"users/new"
+  end
+
+  post '/users/welcome' do
+   session[:email] = params[:email]
+   redirect '/makersbnb/index'
+  end
 
   get '/makersbnb/add' do
     erb :'makersbnb/add'
@@ -27,11 +39,6 @@ class Makersbnb < Sinatra::Base
     @price_per_night = session[:price_per_night]
     erb :'makersbnb/my_listings'
   end
-
-  
-
-
-
 
   run! if app_file == $0
 end
