@@ -1,14 +1,12 @@
-require 'pg'
+require_relative './database_connection'
 
 class User
   def self.create(email:, password:)
-    connection = PG.connect(dbname: 'makersbnb_test')
-    result = connection.query(
+    result = DatabaseConnection.query(
       "INSERT INTO users (email, password) VALUES($1, $2) RETURNING id, email;",
       [email, password]
     )
     User.new(id: result[0]['id'], email: result[0]['email'])
-
   end
 
   attr_reader :id, :email
@@ -17,7 +15,4 @@ class User
     @id = id
     @email = email
   end
-
-
-  
 end

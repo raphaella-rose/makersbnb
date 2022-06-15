@@ -1,5 +1,7 @@
 require 'sinatra/base'
 require 'sinatra/reloader'
+require './lib/user'
+require './database_connection_setup'
 
 class Makersbnb < Sinatra::Base
   enable :sessions
