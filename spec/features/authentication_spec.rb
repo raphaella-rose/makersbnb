@@ -3,7 +3,8 @@ feature 'authentication' do
 
     User.create(email: 'test@example.com', password: 'password123')
 
-    visit '/sessions/new'
+    visit '/makersbnb/index'
+    click_link('Log in')
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'password123')
     click_button('Sign in')
@@ -15,7 +16,8 @@ feature 'authentication' do
   scenario 'a user sees an error if they get their email wrong' do
     User.create(email: 'test@example.com', password: 'password123')
 
-    visit '/sessions/new'
+    visit '/makersbnb/index'
+    click_link('Log in')
     fill_in(:email, with: 'nottherightemail@me.com')
     fill_in(:password, with: 'password123')
     click_button('Sign in')
@@ -28,7 +30,8 @@ feature 'authentication' do
   scenario 'a user sees an error if they get their password wrong' do
     User.create(email: 'test@example.com', password: 'password123')
 
-    visit '/sessions/new'
+    visit '/makersbnb/index'
+    click_link('Log in')
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'wrongpassword')
     click_button('Sign in')
@@ -41,7 +44,8 @@ feature 'authentication' do
   scenario 'a user can sign out' do
     User.create(email: 'test@example.com', password: 'password123')
 
-    visit '/sessions/new'
+    visit '/makersbnb/index'
+    click_link('Log in')
     fill_in(:email, with: 'test@example.com')
     fill_in(:password, with: 'password123')
     click_button('Sign in')
