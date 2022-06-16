@@ -25,7 +25,7 @@ class Makersbnb < Sinatra::Base
    
     if user 
       session[:user_id] = user.id
-      redirect('/makersbnb/welcome')
+      redirect('/makersbnb/welcome_user')
     else
       flash[:notice] = 'Please check your email or password.'
       redirect('/sessions/new')
@@ -39,19 +39,19 @@ class Makersbnb < Sinatra::Base
   end
   
 
-  get '/makersbnb/welcome' do
+  get '/makersbnb/welcome_user' do
     @user = User.find(id: session[:user_id])
-    erb :"makersbnb/welcome"
+    erb :"makersbnb/welcome_user"
   end
 
   get '/makersbnb/new_user' do
    erb :"makersbnb/new_user"
   end
 
-  post '/users/welcome' do
+  post '/makersbnb/welcome_user' do
    user = User.create(email: params[:email], password: params[:password])
    session[:user_id] = user.id
-   redirect '/makersbnb/welcome'
+   redirect '/makersbnb/welcome_user'
   end
 
   get '/makersbnb/add' do
