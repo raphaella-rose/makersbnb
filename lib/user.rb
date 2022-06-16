@@ -36,8 +36,4 @@ class User
   end
 
   attr_reader :id, :email
-
-  
-
-  
 end

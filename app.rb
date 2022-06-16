@@ -5,7 +5,7 @@ require './lib/user'
 require './database_connection_setup'
 
 class Makersbnb < Sinatra::Base
-  enable :sessions
+  enable :sessions, :method_override
   register Sinatra::Flash
 
   configure :development do
@@ -62,14 +62,26 @@ class Makersbnb < Sinatra::Base
    session[:property_title] = params[:property_title]
    session[:description] = params[:description]
    session[:price_per_night] = params[:price_per_night]
-    redirect '/makersbnb/my_listings'
-   end 
+   redirect '/makersbnb/my_listings'
+   end
 
   get '/makersbnb/my_listings' do
     @property_title = session[:property_title]
     @description = session[:description]
     @price_per_night = session[:price_per_night]
     erb :'makersbnb/my_listings'
+  end
+
+  get '/property/privet-drive' do
+    erb :'property/privet-drive'
+  end
+  
+  post '/property/booking-confirmed' do
+    redirect 'property/booking-confirmed'
+  end
+  
+  get '/property/booking-confirmed' do
+    erb :'property/booking-confirmed'
   end
 
   run! if app_file == $0
