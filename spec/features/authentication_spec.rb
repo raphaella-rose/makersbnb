@@ -1,13 +1,11 @@
+require_relative './web_helpers'
+
 feature 'authentication' do
   scenario 'registered user enters login details' do
 
     User.create(email: 'test@example.com', password: 'password123')
 
-    visit '/makersbnb/index'
-    click_link('Log in')
-    fill_in(:email, with: 'test@example.com')
-    fill_in(:password, with: 'password123')
-    click_button('Sign in')
+    log_in()
 
     expect(page).to have_content 'Welcome, test@example.com'
 
@@ -44,11 +42,7 @@ feature 'authentication' do
   scenario 'a user can sign out' do
     User.create(email: 'test@example.com', password: 'password123')
 
-    visit '/makersbnb/index'
-    click_link('Log in')
-    fill_in(:email, with: 'test@example.com')
-    fill_in(:password, with: 'password123')
-    click_button('Sign in')
+    log_in()
 
     click_link('Sign out')
 
