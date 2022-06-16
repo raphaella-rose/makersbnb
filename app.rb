@@ -44,8 +44,8 @@ class Makersbnb < Sinatra::Base
     erb :"makersbnb/welcome"
   end
 
-  get '/users/new' do
-   erb :"users/new"
+  get '/makersbnb/new_user' do
+   erb :"makersbnb/new_user"
   end
 
   post '/users/welcome' do
