@@ -3,6 +3,7 @@ GEM
   specs:
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
+    bcrypt (3.1.18)
     capybara (3.37.1)
       addressable
       matrix
@@ -22,6 +23,8 @@ GEM
     nokogiri (1.13.6-arm64-darwin)
       racc (~> 1.4)
     pg (1.3.5)
+    nokogiri (1.13.6-x86_64-darwin)
+      racc (~> 1.4)
     public_suffix (4.0.7)
     racc (1.6.0)
     rack (2.2.3.1)
@@ -61,20 +64,26 @@ GEM
       rack-protection (= 2.2.0)
       sinatra (= 2.2.0)
       tilt (~> 2.0)
+    sinatra-flash (0.3.0)
+      sinatra (>= 1.0.0)
     tilt (2.0.10)
     xpath (3.2.0)
       nokogiri (~> 1.8)
 
 PLATFORMS
+  arm64-darwin-20
   arm64-darwin-21
+  x86_64-darwin-21
 
 DEPENDENCIES
+  bcrypt
   capybara
   pg
   rspec
   simplecov (~> 0.21.2)
   sinatra
   sinatra-contrib
+  sinatra-flash
 
 BUNDLED WITH
-   2.3.15
+   2.3.13

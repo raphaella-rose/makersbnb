@@ -11,6 +11,7 @@ feature 'adding page' do
     visit '/makersbnb/add'
     fill_in 'property_title', with: 'buckingham palace'
     fill_in 'description', with: 'queens house init?'
+
     fill_in 'price_per_night', with: 400
     click_button 'Submit'
     visit '/makersbnb/my_listings'
