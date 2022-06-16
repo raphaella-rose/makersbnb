@@ -107,6 +107,20 @@ class Makersbnb < Sinatra::Base
     erb :'property/booking-confirmed'
   end
 
+  get '/spaces/index' do
+    erb :'spaces/index'
+  end
+
+  post '/makersbnb/add' do 
+    redirect 'makersbnb/add'
+  end
+
+  post '/spaces/index' do 
+    redirect '/spaces/index'
+  end
+
+
+
   run! if app_file == $0
 end
 
