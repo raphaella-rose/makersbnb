@@ -12,7 +12,7 @@ class Makersbnb < Sinatra::Base
     register Sinatra::Reloader
   end
  
-  get '/makersbnb/' do
+  get '/makersbnb/index' do
     erb :"makersbnb/index"
   end
 
@@ -25,7 +25,7 @@ class Makersbnb < Sinatra::Base
    
     if user 
       session[:user_id] = user.id
-      redirect('/makersbnb/index')
+      redirect('/makersbnb/welcome')
     else
       flash[:notice] = 'Please check your email or password.'
       redirect('/sessions/new')
@@ -35,11 +35,11 @@ class Makersbnb < Sinatra::Base
   get '/makersbnb/signout' do
     session.clear
     flash[:notice] = "You have signed out."
-    redirect('/makersbnb/')
+    redirect('/makersbnb/index')
   end
   
 
-  get '/makersbnb/index' do
+  get '/makersbnb/welcome' do
     @user = User.find(id: session[:user_id])
     erb :"makersbnb/welcome"
   end
@@ -51,7 +51,7 @@ class Makersbnb < Sinatra::Base
   post '/users/welcome' do
    user = User.create(email: params[:email], password: params[:password])
    session[:user_id] = user.id
-   redirect '/makersbnb/index'
+   redirect '/makersbnb/welcome'
   end
 
   get '/makersbnb/add' do
