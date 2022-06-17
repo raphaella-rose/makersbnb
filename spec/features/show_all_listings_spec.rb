@@ -9,7 +9,6 @@ feature 'all properties listed on site shows on homepage' do
     fill_in 'price_per_night', with: 400
 
     click_button 'Submit'
-    click_link 'Return to homepage'
     click_link 'Sign out'
 
     sign_up_user_2()
@@ -19,7 +18,7 @@ feature 'all properties listed on site shows on homepage' do
     fill_in 'price_per_night', with: 300
     
     click_button 'Submit'
-    click_link 'Return to homepage'
+
 
     expect(page).to have_content 'jamaica'
     expect(page).to have_content 'sunny'
