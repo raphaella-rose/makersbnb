@@ -1,1 +1,0 @@
-CREATE TABLE properties (id SERIAL PRIMARY KEY, property_title VARCHAR, description VARCHAR (5000), price_per_night FLOAT);
