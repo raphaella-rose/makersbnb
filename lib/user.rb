@@ -17,6 +17,7 @@ class User
   end
 
   def self.find(id:)
+
     return nil unless id
     result = DatabaseConnection.query(
       "SELECT * FROM users WHERE id = $1", [id])

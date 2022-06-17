@@ -6,28 +6,12 @@ require './lib/user'
 require './database_connection_setup'
 
 
-
-
-
-#we're not cleaning the test db after each test
-
-
-
 class Makersbnb < Sinatra::Base
   enable :sessions, :method_override
   register Sinatra::Flash
 
   configure :development do
     register Sinatra::Reloader
-  end
- 
-   get '/makersbnb/my_listings' do 
-    @properties = Properties.all
-    erb :'makersbnb/my_listings'
-  end
-
-  get '/makersbnb/add' do
-    erb :'makersbnb/add'
   end
 
   post '/makersbnb/my_listings' do 
@@ -67,17 +51,25 @@ class Makersbnb < Sinatra::Base
     erb :"makersbnb/welcome_user"
   end
 
+  post '/makersbnb/welcome_user' do
+    user = User.create(email: params[:email], password: params[:password])
+    session[:user_id] = user.id
+    redirect '/makersbnb/welcome_user'
+   end
+ 
+
+  get '/makersbnb/my_listings' do
+    @user = User.find(id: session[:user_id])
+    @properties = Properties.all
+    erb :'makersbnb/my_listings'
+  end
+
   get '/makersbnb/new_user' do
    erb :"makersbnb/new_user"
   end
 
-  post '/makersbnb/welcome_user' do
-   user = User.create(email: params[:email], password: params[:password])
-   session[:user_id] = user.id
-   redirect '/makersbnb/welcome_user'
-  end
-
   get '/makersbnb/add' do
+    @user = User.find(id: session[:user_id])
     erb :'makersbnb/add'
   end
 
@@ -87,13 +79,6 @@ class Makersbnb < Sinatra::Base
    session[:price_per_night] = params[:price_per_night]
    redirect '/makersbnb/my_listings'
    end
-
-  get '/makersbnb/my_listings' do
-    @property_title = session[:property_title]
-    @description = session[:description]
-    @price_per_night = session[:price_per_night]
-    erb :'makersbnb/my_listings'
-  end
 
   get '/property/privet-drive' do
     erb :'property/privet-drive'
