@@ -5,11 +5,12 @@
     <p><%= property.description %></p>
     <p><%= property.price_per_night %></p>
     <% end %>
-  </div>
+   <form action="/makersbnb/add" method="post">
+      <input type="submit" value="Add more spaces">
+   </form> 
+   </div>
 <% else %>
-      <h1>Please log in to access this page.</h1>
+   <h1>Please log in to access this page.</h1>
 <% end %>
-
-
 
 
