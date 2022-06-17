@@ -1,15 +1,17 @@
 
 feature 'adding page' do
-    xscenario 'seeing the welcome page message' do
-      visit '/makersbnb/add'
+    scenario 'seeing the welcome page message' do
+      sign_up()
+      click_link "Add property"
   
       expect(page).to have_content 'Hello user! would you like to list your property?'
       expect(page).to have_content 'fill in your details below:'
     end
   
-    xscenario 'adding multiple properties' do 
+    scenario 'adding multiple properties' do 
 
-      visit '/makersbnb/add'
+      sign_up()
+      click_link "Add property"
       
       fill_in 'property_title', with: 'buckingham palace'
       fill_in 'description', with: 'queens house init?'

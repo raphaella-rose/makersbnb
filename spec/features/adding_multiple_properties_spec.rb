@@ -11,7 +11,8 @@ feature 'adding page' do
   
     scenario 'adding multiple properties' do 
 
-      visit '/makersbnb/add'
+      sign_up()
+      click_link "Add property"
       
       fill_in 'property_title', with: 'buckingham palace'
       fill_in 'description', with: 'queens house init?'
