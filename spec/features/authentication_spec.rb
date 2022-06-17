@@ -7,7 +7,7 @@ feature 'authentication' do
 
     log_in()
 
-    expect(page).to have_content 'Welcome, test@example.com'
+    expect(page).to have_content 'Book a Space'
 
   end
 
@@ -20,7 +20,7 @@ feature 'authentication' do
     fill_in(:password, with: 'password123')
     click_button('Sign in')
 
-    expect(page).not_to have_content 'Welcome, nottherightemail@me.com'
+    expect(page).not_to have_content 'Book a Space'
     expect(page).to have_content 'Please check your email or password'
 
   end
@@ -34,7 +34,7 @@ feature 'authentication' do
     fill_in(:password, with: 'wrongpassword')
     click_button('Sign in')
 
-    expect(page).not_to have_content 'Welcome, test@example.com'
+    expect(page).not_to have_content 'Book a Space'
     expect(page).to have_content 'Please check your email or password.'
 
   end
@@ -46,7 +46,7 @@ feature 'authentication' do
 
     click_link('Sign out')
 
-    expect(page).not_to have_content 'Welcome, test@example.com'
+    expect(page).not_to have_content 'Book a Space'
     expect(page).to have_content 'You have signed out.'
   end
 end
