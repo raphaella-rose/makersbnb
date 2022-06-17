@@ -1,12 +1,12 @@
 <% if @user %>
-  <h1>Book a Space</h1>
-  <a href="/spaces/new">Add property</a>
-   <div>
+  <h1 class="center">Book a Space</h1>
+    <div class="properties">
     <% @properties.each do |property| %>
-    <p><%= property.property_title %></p>
-    <p><%= property.description %></p>
-    <p><%= property.price_per_night %></p>
+     <div class="property">
+    <span><%= property.property_title %></span>
+    <span><%= property.description %></span>
+    <span><%= property.price_per_night %></span>
+    </div>
     <% end %>
    </div>
-  <div><a href="/makersbnb/signout">Sign out</a></div>
 <% end %>
