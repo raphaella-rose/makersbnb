@@ -67,9 +67,9 @@ class Makersbnb < Sinatra::Base
    erb :"makersbnb/new_user"
   end
 
-  get '/makersbnb/add' do
+  get '/spaces/new' do
     @user = User.find(id: session[:user_id])
-    erb :'makersbnb/add'
+    erb :'spaces/new'
   end
 
   post '/details' do 
@@ -91,9 +91,7 @@ class Makersbnb < Sinatra::Base
     erb :'property/booking-confirmed'
   end
 
-  post '/makersbnb/add' do 
-    redirect 'makersbnb/add'
-  end
+
 
 
 
