@@ -18,22 +18,21 @@ feature 'adding page' do
       fill_in 'price_per_night', with: 400
 
       click_button 'Submit'
-      visit '/makersbnb/add'
-
-      
+      click_link "Add property"
+    
       fill_in 'property_title', with: 'bond house'
       fill_in 'description', with: '007'
       fill_in 'price_per_night', with: 600
 
       click_button 'Submit'
-      visit '/makersbnb/add'
+      click_link "Add property"
+      
 
       fill_in 'property_title', with: 'jamaica'
       fill_in 'description', with: 'sunny'
       fill_in 'price_per_night', with: 300
     
       click_button 'Submit'
-      visit '/makersbnb/my_listings'
   
       expect(page).to have_content 'jamaica'
       expect(page).to have_content 'sunny'

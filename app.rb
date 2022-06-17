@@ -59,12 +59,6 @@ class Makersbnb < Sinatra::Base
    end
  
 
-  get '/makersbnb/my_listings' do
-    @user = User.find(id: session[:user_id])
-    @properties = Properties.all
-    erb :'makersbnb/my_listings'
-  end
-
   get '/makersbnb/new_user' do
    erb :"makersbnb/new_user"
   end
@@ -78,7 +72,7 @@ class Makersbnb < Sinatra::Base
    session[:property_title] = params[:property_title]
    session[:description] = params[:description]
    session[:price_per_night] = params[:price_per_night]
-   redirect '/makersbnb/my_listings'
+   redirect '/makersbnb/welcome_user'
    end
 
   get '/property/privet-drive' do
