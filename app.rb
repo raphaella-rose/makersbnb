@@ -16,7 +16,7 @@ class Makersbnb < Sinatra::Base
 
   post '/makersbnb/my_listings' do 
     Properties.create(property_title: params[:property_title], description: params[:description], price_per_night: params[:price_per_night])
-    redirect '/makersbnb/my_listings'
+    redirect '/makersbnb/welcome_user'
    end 
   
   get '/makersbnb/index' do
@@ -48,6 +48,7 @@ class Makersbnb < Sinatra::Base
 
   get '/makersbnb/welcome_user' do
     @user = User.find(id: session[:user_id])
+    @properties = Properties.all
     erb :"makersbnb/welcome_user"
   end
 
@@ -57,12 +58,6 @@ class Makersbnb < Sinatra::Base
     redirect '/makersbnb/welcome_user'
    end
  
-
-  get '/makersbnb/my_listings' do
-    @user = User.find(id: session[:user_id])
-    @properties = Properties.all
-    erb :'makersbnb/my_listings'
-  end
 
   get '/makersbnb/new_user' do
    erb :"makersbnb/new_user"
@@ -77,7 +72,7 @@ class Makersbnb < Sinatra::Base
    session[:property_title] = params[:property_title]
    session[:description] = params[:description]
    session[:price_per_night] = params[:price_per_night]
-   redirect '/makersbnb/my_listings'
+   redirect '/makersbnb/welcome_user'
    end
 
   get '/property/privet-drive' do

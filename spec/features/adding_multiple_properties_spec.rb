@@ -2,7 +2,7 @@ require_relative './web_helpers'
 
 feature 'adding page' do
     scenario 'seeing the welcome page message' do
-      sign_up()
+      sign_up_user_1()
       click_link "Add property"
   
       expect(page).to have_content 'Hello user! would you like to list your property?'
@@ -11,7 +11,7 @@ feature 'adding page' do
   
     scenario 'adding multiple properties' do 
 
-      sign_up()
+      sign_up_user_1()
       click_link "Add property"
       
       fill_in 'property_title', with: 'buckingham palace'
@@ -19,14 +19,13 @@ feature 'adding page' do
       fill_in 'price_per_night', with: 400
 
       click_button 'Submit'
-      visit '/makersbnb/add'
+      click_link "Add property"
 
       fill_in 'property_title', with: 'jamaica'
       fill_in 'description', with: 'sunny'
       fill_in 'price_per_night', with: 300
     
       click_button 'Submit'
-      visit '/makersbnb/my_listings'
   
       expect(page).to have_content 'jamaica'
       expect(page).to have_content 'sunny'

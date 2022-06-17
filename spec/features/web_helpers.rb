@@ -7,11 +7,18 @@ def log_in
   click_button('Sign in')
 end
 
-def sign_up 
+def sign_up_user_1 
   visit '/makersbnb/index'
   click_link('Sign Up')
-  fill_in(:email, with: 'test@example.com')
+  fill_in(:email, with: 'test1@example.com')
   fill_in(:password, with: 'password123')
   click_button('Submit')
+end
 
+def sign_up_user_2
+  visit '/makersbnb/index'
+  click_link('Sign Up')
+  fill_in(:email, with: 'test2@example.com')
+  fill_in(:password, with: 'password123')
+  click_button('Submit')
 end
