@@ -20,7 +20,6 @@ feature 'adding page' do
     click_button 'Submit'
 
     expect(page).to have_content 'buckingham palace'
-    expect(page).to have_content 'queens house init?'
     expect(page).to have_content 400
   end
 end

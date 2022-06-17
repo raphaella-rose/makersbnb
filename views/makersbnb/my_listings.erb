@@ -1,0 +1,15 @@
+<div class="">
+  <% @properties.each do |property| %>
+   <p><%= property.property_title %></p>
+      <p><%= property.price_per_night %></p>
+ 
+   <% end %>
+   <form action="/makersbnb/add" method="post">
+      <input type="submit" value="Add more spaces">
+   </form> 
+</div>
+
+<form action="/property/privet-drive" method="post">
+   <input type="submit" value="View more details">
+</form> 
+
