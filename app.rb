@@ -98,6 +98,10 @@ class Makersbnb < Sinatra::Base
   get '/property/privet-drive' do
     erb :'property/privet-drive'
   end
+
+  post '/property/privet-drive' do
+    erb :'property/privet-drive'
+  end
   
   post '/property/booking-confirmed' do
     redirect 'property/booking-confirmed'

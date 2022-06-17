@@ -32,7 +32,7 @@ class Properties
       connection = PG.connect(dbname: 'makersbnb')
     end
 
-    connection.exec("INSERT INTO properties (property_title, description, price_per_night) VALUES('#{property_title}', '#{description}', '#{price_per_night}')")
+    connection.exec('INSERT INTO properties (property_title, description, price_per_night) VALUES("#{property_title}", "#{description}", "#{price_per_night}")')
   end
 
 end
