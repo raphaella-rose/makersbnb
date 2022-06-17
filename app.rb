@@ -48,6 +48,7 @@ class Makersbnb < Sinatra::Base
 
   get '/makersbnb/welcome_user' do
     @user = User.find(id: session[:user_id])
+    @properties = Properties.all
     erb :"makersbnb/welcome_user"
   end
 

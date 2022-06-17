@@ -2,7 +2,7 @@ require_relative './web_helpers'
 
 feature 'adding page' do
   scenario 'seeing the welcome page message' do
-    sign_up()
+    sign_up_user_1()
     click_on 'Add property'
      
     expect(page).to have_content 'Hello user! would you like to list your property?'
@@ -10,7 +10,7 @@ feature 'adding page' do
   end
 
   scenario 'adding a property' do
-    sign_up()
+    sign_up_user_1()
     click_on 'Add property'
 
     fill_in 'property_title', with: 'buckingham palace'
