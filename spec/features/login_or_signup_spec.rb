@@ -3,7 +3,7 @@ feature 'user can choose to login or sign up' do
 
     visit('/makersbnb/index')
 
-    expect(page).to have_content 'Please enter your details to sign up!'
+    expect(page).to have_content 'Sign up to MakersBnB'
   end
 
   scenario 'registered user navigates to log in page' do

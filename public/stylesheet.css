@@ -1,3 +1,28 @@
-h1 {
-  color: red;
+.center {
+  text-align: center;
+}
+
+.form-heading {
+  margin-top: 50px;
+}
+
+.sign-up {
+  margin-top: 30px;
+}
+
+.link {
+  color: black;
+  
+}
+
+.link:hover {
+  color: black;
+}
+
+.link:visited {
+  color: black;
+}
+
+.link-wrapper {
+  text-align: right;
 }

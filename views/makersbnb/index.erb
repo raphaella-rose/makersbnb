@@ -1,13 +1,13 @@
+<h1 class="center">Feel at home, anywhere</h1>
 <h2>
   <%= flash[:notice] %>
 </h2>
+<h3 class="form-heading center">Sign up to MakersBnB</h3>
 
-<h1>Please enter your details to sign up!</h1>
-
-<form action="/makersbnb/spaces/index" method="post">
+<form class="sign-up center" action="/makersbnb/spaces/index" method="post">
   <input type="email" name="email" placeholder="email" />
   <input type="password" name="password" placeholder="password" />
   <input type="submit" value="Submit" />
 </form>
 
-<a href="/sessions/new">Log in</a>
+
