@@ -14,9 +14,13 @@ class Makersbnb < Sinatra::Base
     register Sinatra::Reloader
   end
 
+  get '/' do
+    redirect '/makersbnb/index'
+  end
+
   post '/makersbnb/my_listings' do 
     Properties.create(property_title: params[:property_title], description: params[:description], price_per_night: params[:price_per_night])
-    redirect '/makersbnb/welcome_user'
+    redirect '/makersbnb/spaces/index'
    end 
   
   get '/makersbnb/index' do
@@ -32,7 +36,7 @@ class Makersbnb < Sinatra::Base
    
     if user 
       session[:user_id] = user.id
-      redirect('/makersbnb/welcome_user')
+      redirect('/makersbnb/spaces/index')
     else
       flash[:notice] = 'Please check your email or password.'
       redirect('/sessions/new')
@@ -46,16 +50,16 @@ class Makersbnb < Sinatra::Base
   end
   
 
-  get '/makersbnb/welcome_user' do
+  get '/makersbnb/spaces/index' do
     @user = User.find(id: session[:user_id])
     @properties = Properties.all
-    erb :"makersbnb/welcome_user"
+    erb :"spaces/index"
   end
 
-  post '/makersbnb/welcome_user' do
+  post '/makersbnb/spaces/index' do
     user = User.create(email: params[:email], password: params[:password])
     session[:user_id] = user.id
-    redirect '/makersbnb/welcome_user'
+    redirect '/makersbnb/spaces/index'
    end
  
 
@@ -63,16 +67,16 @@ class Makersbnb < Sinatra::Base
    erb :"makersbnb/new_user"
   end
 
-  get '/makersbnb/add' do
+  get '/spaces/new' do
     @user = User.find(id: session[:user_id])
-    erb :'makersbnb/add'
+    erb :'spaces/new'
   end
 
   post '/details' do 
    session[:property_title] = params[:property_title]
    session[:description] = params[:description]
    session[:price_per_night] = params[:price_per_night]
-   redirect '/makersbnb/welcome_user'
+   redirect '/makersbnb/spaces/index'
    end
 
   get '/property/privet-drive' do
@@ -87,17 +91,8 @@ class Makersbnb < Sinatra::Base
     erb :'property/booking-confirmed'
   end
 
-  get '/spaces/index' do
-    erb :'spaces/index'
-  end
 
-  post '/makersbnb/add' do 
-    redirect 'makersbnb/add'
-  end
 
-  post '/spaces/index' do 
-    redirect '/spaces/index'
-  end
 
 
 

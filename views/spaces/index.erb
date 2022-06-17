@@ -1,8 +1,12 @@
-<div class="parent">
-  <div class="container" id="left">
-    <h1>Book a Space</h1>
-    <form action="/makersbnb/add" method="post">
-      <input type="submit" value="List a space">
-    </form> 
-  </div>
-</div>
+<% if @user %>
+  <h1>Book a Space</h1>
+  <a href="/spaces/new">Add property</a>
+   <div>
+    <% @properties.each do |property| %>
+    <p><%= property.property_title %></p>
+    <p><%= property.description %></p>
+    <p><%= property.price_per_night %></p>
+    <% end %>
+   </div>
+  <div><a href="/makersbnb/signout">Sign out</a></div>
+<% end %>
