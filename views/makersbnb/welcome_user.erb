@@ -1,5 +1,11 @@
 <% if @user %>
   <h1>Welcome, <%= @user.email %> </h1>
+ 
+  <a href="/makersbnb/my_listings">My listings</a>
+  <a href="/makersbnb/add">Add property</a>
+
 <% end %>
 
+<div>
 <a href="/makersbnb/signout">Sign out</a>
+</div>
