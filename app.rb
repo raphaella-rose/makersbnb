@@ -17,7 +17,12 @@ class Makersbnb < Sinatra::Base
   post '/makersbnb/my_listings' do 
     Properties.create(property_title: params[:property_title], description: params[:description], price_per_night: params[:price_per_night])
     redirect '/makersbnb/welcome_user'
-   end 
+  end 
+
+  post '/makersbnb/welcome_user' do 
+    Properties.create(property_title: params[:property_title], description: params[:description], price_per_night: params[:price_per_night])
+    redirect '/makersbnb/welcome_user'
+  end 
   
   get '/makersbnb/index' do
     erb :"makersbnb/index"

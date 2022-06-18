@@ -7,9 +7,13 @@
     <p><%= property.property_title %></p>
     <p><%= property.description %></p>
     <p><%= property.price_per_night %></p>
+    <form action="/property/privet-drive" method="post">
+      <input type="submit" value="View more details">
+    </form> 
     <% end %>
    </div>
   <div><a href="/makersbnb/signout">Sign out</a></div>
 <% end %>
+
 
 
