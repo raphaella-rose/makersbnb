@@ -2,6 +2,8 @@
 
 A web application that allows users to list spaces they have available, and to hire spaces for the night.
 
+This was a group project that took place 4 weeks into a Maker's Bootcamp program and took place over 4 days. It was the first experience of working as in team for a coding project. The project utilized several Ruby-based tools and frameworks including Sinatra, Sinatra-contrib, Sinatra-flash, Rspec, Capybara, Bcrypt, Simplecov, PG, and Puma to build a functional web application.
+
 ## User Stories
 
 ```
@@ -47,13 +49,21 @@ Then move to the github website and create a pull request (you should get a prom
 ├── app.rb
 └── config.ru
 
-# Database configuration
+# Setup
 
-## Users Database
+Install Ruby and `bundle install` inside the main directory.
+
+## Database configuration
+
+Make sure PostgreSQL is installed using apt get or sudo and then run using:
+`brew services start postgresql`
+
+### Users Database
 
 Steps to create database and table for production and test environments.
 
-1. CREATE DATABASE makersbnb;
-2. CREATE DATABASE makersbnb_test;
-3. Please refer to this file: ./db/migrations/01_create_table.sql and execute after
-   steps 1 and 2 respectively.
+1. `createdb makersbnb`;
+2. `createdb makersbnb_test`;
+
+3. Then start PostgreSQL using psql <name of database>
+4. For each database run all commands found in: ./db/migrations/
