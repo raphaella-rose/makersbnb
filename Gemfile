@@ -10,3 +10,4 @@ gem 'capybara'
 gem 'bcrypt'
 gem "simplecov", "~> 0.21.2"
 gem 'pg'
+gem 'puma'
