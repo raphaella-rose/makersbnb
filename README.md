@@ -67,3 +67,7 @@ Steps to create database and table for production and test environments.
 
 3. Then start PostgreSQL using psql <name of database>
 4. For each database run all commands found in: ./db/migrations/
+
+## Start the website
+  
+Run `rackup` in the terminal.
