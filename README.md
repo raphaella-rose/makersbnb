@@ -17,9 +17,9 @@ Hello from Raphaella :)
 
 hello from paddy
 
-## hello from eman
+hello from eman
 
-how to branch and push to main:
+## how to branch and push to main:
 
 ```
 
